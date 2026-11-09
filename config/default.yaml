@@ -1,0 +1,16 @@
+grille:
+  moneyness: [0.6, 0.7, 0.8, 0.9, 1.0, 1.1, 1.2, 1.3, 1.4]
+  maturites: [0.6, 0.9, 1.2, 1.5, 1.8, 2.0]
+
+decoupage:
+  train: 0.70
+  validation: 0.15
+  test: 0.15
+
+graine: 42
+
+entrainement:
+  epoques: 500
+  taille_lot: 32
+  taux_apprentissage: 0.001
+  patience: 30

@@ -21,3 +21,11 @@ def test_le_gradient_atteint_tous_les_poids(padding_mode):
     for nom, poids in modele.named_parameters():
         assert poids.grad is not None, nom
         assert poids.grad.abs().sum() > 0, nom
+
+
+@pytest.mark.parametrize("padding_mode", MODES)
+def test_accepte_le_float64(padding_mode):
+    modele = CNN(6, 9, padding_mode=padding_mode).double()
+    sortie = modele(torch.zeros(4, 54, dtype=torch.float64))
+    assert sortie.shape == (4, 6)
+    assert sortie.dtype == torch.float64
